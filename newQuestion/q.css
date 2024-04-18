@@ -18,7 +18,7 @@
     margin-top: 1rem;
   }
   
-  /* Set up fonts, colors and all that jazz. */
+
   body {
     background: var(--color-lightest);
     color: var(--color-gray-medium);
@@ -28,7 +28,7 @@
     line-height: 1.45;
   }
   
-  /* Headings use a different font because they’re hipsters. */
+
   h1,
   h2 {
     color: var(--color-darkest);
@@ -36,7 +36,7 @@
     line-height: 1.1;
   }
   
-  h1 {
+  h1 { 
     font-size: 125%;
   }
   

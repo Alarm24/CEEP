@@ -227,7 +227,7 @@ const questions =
     }
 
 ]
- document.getElementById("full-score").innerHTML = questions.length
+//  document.getElementById("full-score").innerHTML = questions.length
  document.getElementById("total-question").innerHTML = questions.length
 
 let shuffledQuestions = [] //empty array to hold shuffled selected questions
@@ -256,7 +256,7 @@ function NextQuestion(index) {
     handleQuestions()
     const currentQuestion = shuffledQuestions[index]
     document.getElementById("question-number").innerHTML = questionNumber
-    document.getElementById("player-score").innerHTML = playerScore
+    // document.getElementById("player-score").innerHTML = playerScore
     document.getElementById("display-question").innerHTML = currentQuestion.question;
     document.getElementById("option-one-label").innerHTML = currentQuestion.optionA;
     document.getElementById("option-two-label").innerHTML = currentQuestion.optionB;
@@ -287,7 +287,7 @@ function checkForAnswer() {
     //checking if checked radio button is same as answer
     options.forEach((option) => {
         if (option.checked === true && option.value === currentQuestionAnswer) {
-            document.getElementById(correctOption).style.backgroundColor = "green"
+            // document.getElementById(correctOption).style.backgroundColor = "green"
             playerScore++
             indexNumber++
             //set to delay question number till when next question loads
@@ -298,8 +298,8 @@ function checkForAnswer() {
 
         else if (option.checked && option.value !== currentQuestionAnswer) {
             const wrongLabelId = option.labels[0].id
-            document.getElementById(wrongLabelId).style.backgroundColor = "red"
-            document.getElementById(correctOption).style.backgroundColor = "green"
+            // document.getElementById(wrongLabelId).style.backgroundColor = "red"
+            // document.getElementById(correctOption).style.backgroundColor = "green"
             wrongAttempt++
             indexNumber++
             //set to delay question number till when next question loads

@@ -25,7 +25,7 @@ function nextQuestion(){
 }
 
 function backToMainPage(){
-
+  // document.getElementById("question-name").innerHTML
 }
 
 const form = document.querySelector('.contact-form');

@@ -8,7 +8,6 @@ document.addEventListener("DOMContentLoaded", function () {
     { number: 2, name: "nobita", itemCount: 5 },
     // ... other quizzes
   ];
-
   // Populate table with quizzes
   const quizList = document.getElementById("quiz-list");
   quizzes.forEach((quiz) => {

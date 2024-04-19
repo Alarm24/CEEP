@@ -15,6 +15,7 @@ function handleFormSubmit(event) {
   var doc = document.getElementById("form");
   doc.reset()
   document.getElementById("question-name").disabled = true;
+  document.getElementById("question-name").style.backgroundColor = "lightgray";
 }
 
 let questionNumber = 0

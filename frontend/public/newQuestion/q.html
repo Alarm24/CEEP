@@ -11,12 +11,15 @@
 
 <body onload="nextQuestion()">
   <section class="contact-form">
-    <h1 style="text-align: center;">New Quiz</h1>
+    <div class="header">
+      <h1 style="text-align: center;">New Quiz</h1>
+    </div>
+    
     <!-- <p>Create New Question.</p> -->
 
     <div class="input-group">
       <label for="question">Question name</label>
-      <input id="question-name" name="name" type="text" autocomplete="off" required />
+      <textarea id="question-name" name="name" type="text" autocomplete="off" required ></textarea>
     </div>
     <form id="form" autocomplete="off">
       <!-- <div class="input-group">
@@ -32,38 +35,48 @@
 
 
       <div class="input-group">
-        <label for="question">Question no.<span id="question-number"></span></label>
-        <input id="question" name="question" type="text" required />
+        <label for="question" id="q">Question no.<span id="question-number"></span></label>
+        <textarea id="question" name="question" type="text" required ></textarea>
       </div>
 
       <div class="input-group">
+        <div id="textA">
         <label for="text">Answer 1</label>
-        <input id="text" name="answer1" type="text" required />
+        <textarea name="optionA" type="text" required ></textarea>
+      </div>
       </div>
 
       <div class="input-group">
+        <div id="textB">
         <label for="text">Answer 2</label>
-        <input id="text" name="answer2" type="text" required />
+        <textarea name="optionB" type="text" required ></textarea>
+      </div>
       </div>
 
       <div class="input-group">
+        <div id="textC">
         <label for="text">Answer 3</label>
-        <input id="text" name="answer3" type="text" required />
+        <textarea name="optionC" type="text" required ></textarea>
+      </div>
       </div>
 
       <div class="input-group">
+        <div id="textD">
         <label for="text">Answer 4</label>
-        <input id="text" name="answer4" type="text" required />
+        <textarea name="optionD" type="text" required ></textarea>
+      </div>
       </div>
 
       <div class="input-group">
+        <div id="subject">
         <label for="subject">Correct Answer</label>
-        <select id="subject" name="correctOption">
+        <select id="select" name="correctOption">
           <option>Answer 1</option>
           <option>Answer 2</option>
           <option>Answer 3</option>
           <option>Answer 4</option>
         </select>
+      </div>
       </div>
 
       <!-- <div class="input-group">
@@ -79,8 +92,8 @@
         <label class="inline" for="snacks-cake">Cake</label>
       </div>
       <input name="secret" type="hidden" value="1b3a9374-1a8e-434e-90ab-21aa7b9b80e7"/> -->
-      <button type="submit" onclick="nextQuestion()">Add More Question</button>
-      <button type="submit" onclick="backToMainPage()">Save</button>
+      <button id="moreQuestion" type="submit" onclick="nextQuestion()">Add More Question</button>
+      <button id="save" type="submit" onclick="backToMainPage()">Save</button>
     </form>
   </section>
 

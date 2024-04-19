@@ -1,0 +1,17 @@
+{
+  "name": "ceep",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node .",
+    "front": "cd frontend && npm start",
+    "back": "cd backend && npm start"
+  },
+  "workspaces": [
+    "frontend",
+    "backend"
+  ],
+  "author": "",
+  "license": "ISC"
+}

@@ -1,12 +1,12 @@
-import express from "express";
+// import express from "express";
 
-import * as quizController from "../controllers/quizController.js";
+// // import * as itemController from "../controllers/itemController.js";
 
-const router = express.Router();
+// const router = express.Router();
 
-router.get("/", quizController.getItems);
-router.post("/", quizController.createItem);
-router.delete("/:id", quizController.deleteItem);
-// TODO3: add a router for the filter function
+// router.get("/", itemController.getItems);
+// router.post("/", itemController.createItem);
+// router.delete("/:id", itemController.deleteItem);
+// // TODO3: add a router for the filter function
 
-export default router;
+// export default router;

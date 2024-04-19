@@ -1,23 +1,17 @@
-// import { handleCreateMember, populateMembers } from "./member.js";
-// import { fetchAndDrawTable, handleCreateItem, handleFilterItem } from "./table.js";
+import { createUser } from "./api.js"; // Adjust path if necessary
 
-// document.addEventListener("DOMContentLoaded", () => {
-//   fetchAndDrawTable();
-
-//   populateMembers();
-
-//   const addItemButton = document.getElementById("add-newrow");
-//   addItemButton.addEventListener("click", () => {
-//     handleCreateItem();
-//   });
-
-//   const filterButton = document.getElementById("filter-button");
-//   filterButton.addEventListener("click", () => {
-//     handleFilterItem();
-//   });
-
-//   const addMemberButton = document.getElementById("add-member");
-//   addMemberButton.addEventListener("click", () => {
-//     handleCreateMember();
-//   });
-// });
+document.addEventListener("DOMContentLoaded", function () {
+  const signUpForm = document.getElementById("signupForm");
+  signUpForm.addEventListener("submit", async function (event) {
+    event.preventDefault();
+    const username = form.elements["username"].value;
+    const password = form.elements["password"].value;
+    try {
+      await createUser(username, password);
+      console.log("User created:", response);
+      window.location.href = "login.html"; // Redirect to login on success
+    } catch (error) {
+      console.error("Signup failed:", error);
+    }
+  });
+});

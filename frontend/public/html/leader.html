@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Leaderboard</title>
+    <link rel="stylesheet" href="/css/leader.css" />
+  </head>
+  <body>
+    <div class="leaderboard-container">
+      <header>
+        <h1>LeaderBoard</h1>
+        <select id="quiz-select" onchange="loadLeaderboard()">
+          <!-- Options will be dynamically loaded here -->
+        </select>
+      </header>
+      <div id="leaderboard-list">
+        <!-- Leaderboard entries will be inserted here dynamically -->
+      </div>
+      <div id="pagination-controls"></div>
+      <!-- Moved inside the container -->
+      <a href="main.html">
+        <button class="main-page-btn">Main Page</button>
+      </a>
+    </div>
+    <script src="/scripts/leader.js"></script>
+  </body>
+</html>

@@ -1,0 +1,103 @@
+body {
+  font-family: "Arial", sans-serif;
+  background-color: #edf2f7;
+  margin: 0;
+  padding: 20px;
+}
+
+.container {
+  background-color: #ffffff;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  padding: 20px;
+}
+
+.top-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 0;
+}
+
+.new-quiz-btn {
+  background-color: #3490dc;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-right: 20px; /* If you want some space between the button and the search box */
+}
+
+.search-box {
+  display: flex;
+  align-items: center;
+}
+
+.search-box input {
+  padding: 10px;
+  margin-right: 10px;
+  border: 2px solid #ddd;
+  border-radius: 5px;
+  outline: none;
+}
+
+.search-box button {
+  padding: 10px;
+  background-color: #3490dc;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+table thead {
+  background-color: #3490dc;
+  color: white;
+}
+
+table th,
+table td {
+  text-align: left;
+  padding: 15px;
+}
+
+table tbody tr:nth-child(odd) {
+  background-color: #f8f9fa;
+}
+
+table tbody tr:hover {
+  background-color: #e2e6ea;
+}
+
+.button-container {
+  display: flex;
+  justify-content: start; /* Aligns items to the start of the container */
+  align-items: center;
+  gap: 10px; /* This adds some space between your buttons */
+}
+
+.play-btn {
+  background-color: #3490dc;
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.leaderboard-btn {
+  background-color: #3490dc;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-right: 20px; /* If you want some space between the button and the search box */
+}

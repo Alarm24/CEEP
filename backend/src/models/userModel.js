@@ -1,4 +1,16 @@
 import mongoose from "mongoose";
 
-// TODO4: create the member model
-// HINT: you can see and understand how to create model in ./itemModel.js
+const Schema = mongoose.Schema;
+const userSchema = new Schema({
+  username: {
+    type: String,
+    required: true,
+    unique: true,
+  },
+  password: {
+    type: String,
+    required: true,
+  },
+});
+
+export default mongoose.model("User", userSchema);

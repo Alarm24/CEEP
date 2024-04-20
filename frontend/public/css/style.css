@@ -43,6 +43,11 @@ body {
   outline: none;
 }
 
+.search-box input:focus,
+.search-box input:active {
+  border-color: gray;
+}
+
 .search-box button {
   padding: 10px;
   background-color: #3490dc;
@@ -74,6 +79,12 @@ table tbody tr:nth-child(odd) {
 
 table tbody tr:hover {
   background-color: #e2e6ea;
+}
+
+.container button:hover{
+  cursor: pointer;
+  transform: scale(1.10);
+  transition: 150ms all linear;
 }
 
 .button-container {

@@ -1,40 +1,45 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Quiz List</title>
-    <link rel="stylesheet" href="/css/style.css" />
-  </head>
-  <body>
-    <div class="container">
-      <div class="top-bar">
-        <div class="button-container">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Quiz List</title>
+  <link rel="stylesheet" href="../css/style.css" />
+</head>
+
+<body>
+  <div class="container">
+    <div class="top-bar">
+      <div class="button-container">
+        <a href="newQuestion.html">
           <button class="new-quiz-btn">New Quiz</button>
-          <a href="leader.html">
-            <button class="leaderboard-btn">Leaderboard</button>
-          </a>
-        </div>
-        <div class="search-box">
-          <input type="text" placeholder="Search" id="search-input" />
-          <button onclick="search()">🔍</button>
-        </div>
+        </a>
+        <a href="leader.html">
+          <button class="leaderboard-btn">Leaderboard</button>
+        </a>
       </div>
-      <table>
-        <thead>
-          <tr>
-            <th>Number</th>
-            <th>Quiz’s Name</th>
-            <th>Amount of Items</th>
-            <th></th>
-            <!-- For the leaderboard buttons -->
-          </tr>
-        </thead>
-        <tbody id="quiz-list">
-          <!-- Quiz items will be inserted here dynamically -->
-        </tbody>
-      </table>
+      <div class="search-box">
+        <input type="text" placeholder="Search" id="search-input" />
+        <button onclick="search()">🔍</button>
+      </div>
     </div>
-    <script src="/scripts/qmain.js"></script>
-  </body>
+    <table>
+      <thead>
+        <tr>
+          <th>Number</th>
+          <th>Quiz’s Name</th>
+          <th>Amount of Items</th>
+          <th></th>
+          <!-- For the leaderboard buttons -->
+        </tr>
+      </thead>
+      <tbody id="quiz-list">
+        <!-- Quiz items will be inserted here dynamically -->
+      </tbody>
+    </table>
+  </div>
+  <script src="../scripts/qmain.js"></script>
+</body>
+
 </html>

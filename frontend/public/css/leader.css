@@ -1,6 +1,6 @@
 body {
   font-family: "Arial", sans-serif;
-  background-color: #edf2f7; /* Or use the specific blue shade from your image */
+    background: url(../src/blue.jpg); /* Or use the specific blue shade from your image */
   margin: 0;
   padding: 20px;
 }
@@ -8,6 +8,8 @@ body {
 .leaderboard-container {
   background: #3490dc; /* Dark blue background */
   color: white;
+  border:8px solid transparent;
+  border-color: red;
   border-radius: 10px;
   padding: 20px;
   max-width: 600px;

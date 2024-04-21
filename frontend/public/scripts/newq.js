@@ -20,6 +20,12 @@ function handleFormSubmit(event) {
   document.getElementById("question-name").style.backgroundColor = "lightgray";
   if (summit) {
     document.getElementById("option-modal").style.display = "flex";
+    document.querySelector('.results pre').innerText = "";
+    document.getElementById("question-name").disabled = false;
+    document.getElementById("question-name").style.backgroundColor = "white";
+    document.getElementById("question-name").value = "";
+    questionNumber = 1;
+    document.getElementById("question-number").innerHTML = questionNumber;
   }
 }
 
@@ -39,13 +45,7 @@ function notSummitYet() {
 }
 
 function closeOptionModal() {
-  document.querySelector('.results pre').innerText = "";
   document.getElementById("option-modal").style.display = "none";
-  document.getElementById("question-name").disabled = false;
-  document.getElementById("question-name").style.backgroundColor = "white";
-  document.getElementById("question-name").value = "";
-  questionNumber = 1;
-  document.getElementById("question-number").innerHTML = questionNumber;
   summit = false;
 }
 

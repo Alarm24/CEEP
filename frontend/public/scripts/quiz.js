@@ -373,13 +373,16 @@ function handleEndGame() {
 
 //closes score modal and resets game
 function closeScoreModal() {
+  document.getElementById("score-modal").style.display = "none";
+}
+
+function tryAgain(){
   questionNumber = 1;
   playerScore = 0;
   wrongAttempt = 0;
   indexNumber = 0;
   shuffledQuestions = [];
   NextQuestion(indexNumber);
-  document.getElementById("score-modal").style.display = "none";
 }
 
 //function to close warning modal

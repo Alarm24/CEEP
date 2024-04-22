@@ -32,7 +32,6 @@ app.use(
 app.get("/", (req, res) => {
   req.session.isAuth = true;
   req.session.save((err) => {
-    // Force the session to be saved
     if (err) console.error("Session save error:", err);
     res.send("Hello Sessions");
   });

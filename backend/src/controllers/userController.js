@@ -12,7 +12,7 @@ export const createUser = async (req, res) => {
       password: req.body.password,
     });
     await newUser.save();
-    res.status(200).json({ message: "OK" });
+    return res.status(200).json({ message: "OK" });
   } catch (error) {
     console.error("Error creating user:", error);
     res.status(500).send("Error creating user.");

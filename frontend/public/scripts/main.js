@@ -8,7 +8,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const username = form.elements["username"].value;
     const password = form.elements["password"].value;
     try {
-      await createUser(username, password);
+      const response = await createUser(username, password); // Capture the response
       console.log("User created:", response);
       window.location.href = "login.html"; // Redirect to login on success
     } catch (error) {

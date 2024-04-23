@@ -2,6 +2,7 @@ import { updateScore } from "./api.js";
 var questions = [];
 document.addEventListener("DOMContentLoaded", function () {
   const rawData = JSON.parse(localStorage.getItem("selectedQuiz") || "[]");
+  console.log(rawData);
   questions = rawData.question.map((quiz) => ({
     question: quiz.name,
     choices: quiz.choices,
@@ -117,8 +118,6 @@ function handleEndGame() {
   let remark = null;
   let remarkColor = null;
   let fullScore = questions.length;
-  updateScore(playerScore);
-
   // condition check for player remark and remark color
   if (playerScore <= 0.3 * fullScore) {
     remark = "Bad Grades, Keep Practicing.";
@@ -143,7 +142,14 @@ function handleEndGame() {
 
 //closes score modal and resets game
 function closeScoreModal() {
-  localStorage.removeItem("selectedQuiz");
+  // localStorage.removeItem("selectedQuiz");
+  const username = localStorage.getItem("username");
+  const rawData = JSON.parse(localStorage.getItem("selectedQuiz") || "[]");
+  const question_name = rawData.name;
+  let scores = {
+    [question_name]: playerScore,
+  };
+  updateScore(username, scores);
   document.getElementById("score-modal").style.display = "none";
 }
 
@@ -173,5 +179,5 @@ window.resetOptionBackground = resetOptionBackground;
 window.unCheckRadioButtons = unCheckRadioButtons;
 window.handleEndGame = handleEndGame;
 window.tryAgain = tryAgain;
-windowcloseScoreModal = closeScoreModal;
+window.closeScoreModal = closeScoreModal;
 window.closeOptionModal = closeOptionModal;

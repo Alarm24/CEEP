@@ -65,13 +65,13 @@ export async function sendQuiz(name, questions) {
   const data = await response.json();
 }
 
-export async function updateScore(_id, scores) {
-  const response = await fetch(`${BACKEND_URL}/update_score`, {
+export async function updateScore(username, scores) {
+  const response = await fetch(`${BACKEND_URL}/user/update_score`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
     },
-    body: JSON.stringify({ _id, scores }),
+    body: JSON.stringify({ username, scores }),
   });
   if (!response.ok) {
     throw new Error(`HTTP error! status: ${response.status}`);

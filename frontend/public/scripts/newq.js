@@ -1,4 +1,4 @@
-import { sendQuiz } from "./api";
+import { sendQuiz } from "./api.js";
 
 function handleFormSubmit(event) {
   event.preventDefault();
@@ -35,10 +35,6 @@ function handleFormSubmit(event) {
 let questionNumber = 1;
 let summit = false;
 
-function load() {
-  document.getElementById("question-number").innerHTML = questionNumber;
-}
-
 function canSummit() {
   summit = true;
 }
@@ -57,6 +53,7 @@ form.addEventListener("submit", handleFormSubmit);
 let question = [];
 
 document.addEventListener("DOMContentLoaded", function () {
+  document.getElementById("question-number").innerHTML = questionNumber;
   const saveQuiz = document.getElementById("save");
   saveQuiz.addEventListener("submit", async function (e) {
     e.preventDefault();
@@ -71,4 +68,4 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 });
 
-export { load, canSummit, notSummitYet, closeOptionModal };
+export { canSummit, notSummitYet, closeOptionModal };

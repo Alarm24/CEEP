@@ -42,10 +42,17 @@ export const updateScore = async (req, res) => {
     if (!user) {
       return res.status(404).send("User not found.");
     }
+
+    const scoreUpdates = {};
+    for (const key in req.body.scores) {
+      scoreUpdates[`scores.${key}`] = req.body.scores[key];
+    }
+
     const updateResult = await User.updateOne(
       { username: req.body.username },
-      { $set: { scores: req.body.scores } }
+      { $set: scoreUpdates }
     );
+
     if (updateResult.nModified === 0) {
       return res.status(404).send("No user was updated.");
     }

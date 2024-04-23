@@ -48,7 +48,6 @@ async function protectRoute() {
 document.addEventListener("DOMContentLoaded", function () {
   protectRoute();
 });
-
 document.addEventListener("DOMContentLoaded", function () {
   const logoutBtn = document.getElementById("logoutButton");
   logoutBtn.addEventListener("click", async function () {

@@ -48,7 +48,7 @@ export async function getQuiz() {
 }
 
 export async function sendQuiz(name, question) {
-  const response = await fetch(`${BACKEND_URL}/user/login`, {
+  const response = await fetch(`${BACKEND_URL}/quiz`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",

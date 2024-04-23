@@ -1,8 +1,3 @@
-<<<<<<< HEAD
-import { createUser, loginUser } from "./api.js";
-
-=======
->>>>>>> 80d42e3fb9cb8fa69c73b8b64e8fffc86f70f92c
 document.addEventListener("DOMContentLoaded", function () {
   // Example data
   const quizzes = [

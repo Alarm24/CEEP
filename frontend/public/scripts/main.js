@@ -1,7 +1,7 @@
+import { getQuiz } from "./api.js";
 function toQuiz(index) {
   localStorage.setItem("quizIndex", index);
   window.location.href = "quiz.html";
-
 }
 
 document.addEventListener("DOMContentLoaded", function () {
@@ -58,6 +58,7 @@ async function protectRoute() {
 }
 document.addEventListener("DOMContentLoaded", function () {
   protectRoute();
+  getQuiz();
 });
 document.addEventListener("DOMContentLoaded", function () {
   const logoutBtn = document.getElementById("logoutButton");

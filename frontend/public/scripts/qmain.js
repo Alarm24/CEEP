@@ -40,6 +40,8 @@ function search() {
     }
   }
 }
+window.search = search;
+
 async function protectRoute() {
   if (!localStorage.getItem("username")) {
     window.location.href = "login.html";

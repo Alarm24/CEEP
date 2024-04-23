@@ -48,31 +48,32 @@ export async function getQuiz() {
   return data;
 }
 
-export async function sendQuiz(name, question) {
+export async function sendQuiz(name, questions) {
   const response = await fetch(`${BACKEND_URL}/quiz`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
     },
-    body: JSON.stringify({ name, question }),
+    body: JSON.stringify({
+      name: name,
+      question: questions,
+    }),
   });
   if (!response.ok) {
     throw new Error(`HTTP error! status: ${response.status}`);
   }
   const data = await response.json();
-  if (response.status === 200) {
-    localStorage.setItem("name", name);
-  }
 }
-export async function updateScore(_id,scores){
+
+export async function updateScore(_id, scores) {
   const response = await fetch(`${BACKEND_URL}/update_score`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
     },
-    body: JSON.stringify({_id, scores}),
+    body: JSON.stringify({ _id, scores }),
   });
-    if (!response.ok) {
-      throw new Error(`HTTP error! status: ${response.status}`);
-    }
+  if (!response.ok) {
+    throw new Error(`HTTP error! status: ${response.status}`);
+  }
 }

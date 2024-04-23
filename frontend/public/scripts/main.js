@@ -5,15 +5,13 @@ function toQuiz(index) {
 }
 
 document.addEventListener("DOMContentLoaded", function () {
-  // Example data
-  const quizzes = [
-    { id: 1, name: "what is Doraemon", itemCount: 10 },
-    { id: 1, name: "what is Doraemon", itemCount: 10 },
-    { id: 1, name: "what is Doraemon", itemCount: 10 },
-    { id: 1, name: "what is Doraemon", itemCount: 10 },
-    { id: 2, name: "nobita", itemCount: 5 },
-    // ... other quizzes
-  ];
+  const rawData = JSON.parse(localStorage.getItem("quiz") || "[]");
+  console.log(rawData);
+  const quizzes = rawData.map((quiz, index) => ({
+    id: index + 1,
+    name: quiz.name,
+    itemCount: quiz.question.length,
+  }));
   // Populate table with quizzes
   const quizList = document.getElementById("quiz-list");
   quizzes.forEach((quiz, index) => {

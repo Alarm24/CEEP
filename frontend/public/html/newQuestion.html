@@ -13,7 +13,7 @@
         <h1>Save Successfully!</h1>
 
         <div class="modal-button-container">
-          <button onclick="closeOptionModal()">Continue</button>
+          <button id="close" onclick="closeOptionModal()">Continue</button>
         </div>
       </div>
     </div>
@@ -42,12 +42,7 @@
           <label for="question" id="q"
             >Question no.<span id="question-number"></span
           ></label>
-          <textarea
-            id="question"
-            name="name"
-            type="text"
-            required
-          ></textarea>
+          <textarea id="question" name="qname" type="text" required></textarea>
         </div>
 
         <div class="input-group">

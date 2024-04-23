@@ -1,14 +1,14 @@
 const questions = [
   {
-    question: "How many days makes a week ?", 
-    option: ["10","14","5","7"],
-    correctOption: 4
+    question: "How many days makes a week ?",
+    choices: ["10", "14", "5", "7"],
+    answer: 4,
   },
 
   {
     question: "How many players are allowed on a soccer pitch ?",
-    option: ["10","11","9","12"],
-    correctOption: 2
+    choices: ["10", "11", "9", "12"],
+    answer: 2,
   },
 ];
 
@@ -36,18 +36,18 @@ function NextQuestion(index) {
   document.getElementById("display-question").innerHTML =
     currentQuestion.question;
   document.getElementById("option-one-label").innerHTML =
-    currentQuestion.option[0];
+    currentQuestion.choices[0];
   document.getElementById("option-two-label").innerHTML =
-    currentQuestion.option[1];
+    currentQuestion.choices[1];
   document.getElementById("option-three-label").innerHTML =
-    currentQuestion.option[2];
+    currentQuestion.choices[2];
   document.getElementById("option-four-label").innerHTML =
-    currentQuestion.option[3];
+    currentQuestion.choices[3];
 }
 
 function checkForAnswer() {
   const currentQuestion = shuffledQuestions[indexNumber]; //gets current Question
-  const currentQuestionAnswer = currentQuestion.correctOption.toString(); //gets current Question's answer
+  const currentQuestionAnswer = currentQuestion.answer.toString(); //gets current Question's answer
   const options = document.getElementsByName("option"); //gets all elements in dom with name of 'option' (in this the radio inputs)
   let correctOption = null;
 
@@ -71,20 +71,15 @@ function checkForAnswer() {
   //checking if checked radio button is same as answer
   options.forEach((option) => {
     if (option.checked === true && option.value === currentQuestionAnswer) {
-      // document.getElementById(correctOption).style.backgroundColor = "green"
       playerScore++;
       indexNumber++;
-      //set to delay question number till when next question loads
       setTimeout(() => {
         questionNumber++;
       }, 1000);
     } else if (option.checked && option.value !== currentQuestionAnswer) {
       const wrongLabelId = option.labels[0].id;
-      // document.getElementById(wrongLabelId).style.backgroundColor = "red"
-      // document.getElementById(correctOption).style.backgroundColor = "green"
       wrongAttempt++;
       indexNumber++;
-      //set to delay question number till when next question loads
       setTimeout(() => {
         questionNumber++;
       }, 1000);
@@ -128,6 +123,7 @@ function handleEndGame() {
   let remark = null;
   let remarkColor = null;
   let fullScore = questions.length;
+  updateScore(playerScore);
 
   // condition check for player remark and remark color
   if (playerScore <= 0.3 * fullScore) {
@@ -156,14 +152,14 @@ function closeScoreModal() {
   document.getElementById("score-modal").style.display = "none";
 }
 
-function tryAgain(){
+function tryAgain() {
   questionNumber = 1;
   playerScore = 0;
   wrongAttempt = 0;
   indexNumber = 0;
   shuffledQuestions = [];
   NextQuestion(indexNumber);
-  closeScoreModal()
+  closeScoreModal();
 }
 
 //function to close warning modal
@@ -171,6 +167,6 @@ function closeOptionModal() {
   document.getElementById("option-modal").style.display = "none";
 }
 async function updateScore(playerScore) {
-  const id = localStorage.getItem('_id')
-  await updateScore(id, playerScore)
+  const id = localStorage.getItem("_id");
+  await updateScore(id, playerScore);
 }

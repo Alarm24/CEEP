@@ -29,6 +29,7 @@ body {
 
 .new-quiz-btn,
 .leaderboard-btn,
+.play-btn,
 #logoutButton {
   background-color: #3490dc;
   color: white;
@@ -123,6 +124,7 @@ table tbody tr:hover {
 
   .new-quiz-btn,
   .leaderboard-btn,
+  .play-btn,
   #logoutButton {
     padding: 8px 16px;
     font-size: 0.8em;

@@ -91,25 +91,25 @@ h1 {
   font-size: 125%;
 }
 
-.results {
+/* .results {
   position: absolute;
   right: 35px;
   top: 428px;
-}
+} */
 
 p {
   margin-top: 0.5rem;
   font-size: 87.5%;
 }
 
-.results pre {
+/* .results pre {
   width: 350px;
   margin-top: 1rem;
   padding: 0.5rem 1rem;
   background: color-lightest;
   border: 1px solid var(--color-gray-light);
   overflow-x: scroll;
-}
+} */
 
 .contact-form form {
   position: relative;
@@ -188,6 +188,7 @@ p {
 
 #moreQuestion {
   background: #4FD4FF;
+  
 }
 
 #question-name {
@@ -203,48 +204,49 @@ p {
 #textA {
   position: absolute;
   left: 16px;
-  top: 181px;
+  top: 281px;
   height: 121px;
 }
 
 #textB {
   position: absolute;
   left: 600px;
-  top: 181px;
+  top: 281px;
   height: 121px;
 }
 
 #textC {
   position: absolute;
   left: 16px;
-  top: 325px;
+  top: 425px;
   height: 121px;
 }
 
 #textD {
   position: absolute;
   left: 600px;
-  top: 325px;
+  top: 425px;
   height: 121px;
 }
 
 #moreQuestion {
   position: absolute;
-  right: -1080px;
-  top: -70px;
+  right: -640px;
+  bottom: -550px;
   height: fit-content;
 }
 
 #save {
   position: absolute;
-  right: -1200px;
-  top: -70px;
+  right: -820px;
+  bottom: -550px;
   height: fit-content;
 }
 
 #subject {
   position: absolute;
-  right: -1150px;
+  left: 16px;
+  top: 170px;
 }
 
 #select {

@@ -63,3 +63,15 @@ export async function sendQuiz(name, question) {
     localStorage.setItem("name", name);
   }
 }
+export async function updateScore(_id,scores){
+  const response = await fetch(`${BACKEND_URL}/update_score`, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({_id, scores}),
+  });
+    if (!response.ok) {
+      throw new Error(`HTTP error! status: ${response.status}`);
+    }
+}

@@ -170,3 +170,7 @@ function tryAgain(){
 function closeOptionModal() {
   document.getElementById("option-modal").style.display = "none";
 }
+async function updateScore(playerScore) {
+  const id = localStorage.getItem('_id')
+  await updateScore(id, playerScore)
+}

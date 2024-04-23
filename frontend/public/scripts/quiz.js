@@ -1,18 +1,13 @@
-const questions = [
-  {
-    question: "How many days makes a week ?",
-    choices: ["10", "14", "5", "7"],
-    answer: 4,
-  },
-
-  {
-    question: "How many players are allowed on a soccer pitch ?",
-    choices: ["10", "11", "9", "12"],
-    answer: 2,
-  },
-];
-
-document.getElementById("total-question").innerHTML = questions.length;
+var questions = [];
+document.addEventListener("DOMContentLoaded", function () {
+  const rawData = JSON.parse(localStorage.getItem("selectedQuiz") || "[]");
+  questions = rawData.question.map((quiz) => ({
+    question: quiz.name,
+    choices: quiz.choices,
+    answer: quiz.answer,
+  }));
+  document.getElementById("total-question").innerHTML = questions.length;
+});
 
 let shuffledQuestions = []; //empty array to hold shuffled selected questions
 

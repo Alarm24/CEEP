@@ -27,9 +27,6 @@ document.addEventListener("DOMContentLoaded", function () {
         <td>${quiz.itemCount}</td>
         <td><button class="play-btn">Play</button></td>
       `;
-    // row.addEventListener("click", function () {
-    //   toQuiz(index);
-    // });
     row.cells[3].firstChild.addEventListener("click", function () {
       toQuiz(index);
     });

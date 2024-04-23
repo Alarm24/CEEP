@@ -1,4 +1,4 @@
-@media (orientation: landscape){
+@media (orientation: landscape){ /*Horizontal screen*/
 .header {
   padding: 60px;
   text-align: center;
@@ -252,7 +252,7 @@ p {
   width: 250px;
 }}
 
-@media (orientation: portrait){
+@media (orientation: portrait){ /*Vertical screen*/
   .header {
     padding: 60px;
     text-align: center;
@@ -280,7 +280,6 @@ p {
     margin-top: 1rem;
   }
   
-  /* Set up fonts, colors and all that jazz. */
   body {
     background: var(--color-lightest);
     color: var(--color-gray-medium);
@@ -341,7 +340,6 @@ p {
     text-align: center;
   }
   
-  /* Headings use a different font because they’re hipsters. */
   h1,
   h2 {
     color: var(--color-darkest);
@@ -353,7 +351,6 @@ p {
     font-size: 125%;
   }
   
-  /* Set up general layout rules for outer containers. */
   .contact-form,
   .results {
     width: 90vw;

@@ -34,6 +34,9 @@ function handleFormSubmit(event) {
 
 let questionNumber = 1;
 let summit = false;
+window.canSummit = canSummit;
+window.notSummitYet = notSummitYet;
+window.closeOptionModal = closeOptionModal;
 
 function canSummit() {
   summit = true;

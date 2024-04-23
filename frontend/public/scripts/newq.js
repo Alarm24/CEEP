@@ -58,7 +58,7 @@ let question = [];
 document.addEventListener("DOMContentLoaded", function () {
   document.getElementById("question-number").innerHTML = questionNumber;
   const saveQuiz = document.getElementById("save");
-  saveQuiz.addEventListener("submit", async function (e) {
+  saveQuiz.addEventListener("click", async function (e) {
     e.preventDefault();
     const name = document.getElementById("question-name").value;
     try {

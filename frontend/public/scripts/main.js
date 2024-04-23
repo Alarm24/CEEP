@@ -1,3 +1,9 @@
+function toQuiz(index) {
+  localStorage.setItem("quizIndex", index);
+  window.location.href = "quiz.html";
+
+}
+
 document.addEventListener("DOMContentLoaded", function () {
   // Example data
   const quizzes = [
@@ -10,7 +16,7 @@ document.addEventListener("DOMContentLoaded", function () {
   ];
   // Populate table with quizzes
   const quizList = document.getElementById("quiz-list");
-  quizzes.forEach((quiz) => {
+  quizzes.forEach((quiz, index) => {
     let row = quizList.insertRow();
     row.innerHTML = `
         <td>${quiz.id}</td>
@@ -18,6 +24,9 @@ document.addEventListener("DOMContentLoaded", function () {
         <td>${quiz.itemCount}</td>
         <td><button class="play-btn">Play</button></td>
       `;
+    row.addEventListener("click", function () {
+      toQuiz(index);
+    });
   });
 });
 

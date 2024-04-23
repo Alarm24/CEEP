@@ -46,3 +46,20 @@ export async function getQuiz() {
   localStorage.setItem("quiz", JSON.stringify(data)); // Store the quiz data in localStorage
   return data;
 }
+
+export async function sendQuiz(name, question) {
+  const response = await fetch(`${BACKEND_URL}/user/login`, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({ name, question }),
+  });
+  if (!response.ok) {
+    throw new Error(`HTTP error! status: ${response.status}`);
+  }
+  const data = await response.json();
+  if (response.status === 200) {
+    localStorage.setItem("name", name);
+  }
+}

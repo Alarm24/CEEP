@@ -2,13 +2,13 @@ const questions = [
   {
     question: "How many days makes a week ?", 
     option: ["10","14","5","7"],
-    correctOption: 4,
+    correctOption: 4
   },
 
   {
     question: "How many players are allowed on a soccer pitch ?",
     option: ["10","11","9","12"],
-    correctOption: 2,
+    correctOption: 2
   },
 ];
 

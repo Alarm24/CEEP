@@ -1,3 +1,5 @@
+import { sendQuiz } from "./api";
+
 function handleFormSubmit(event) {
   event.preventDefault();
 
@@ -53,3 +55,20 @@ function closeOptionModal() {
 const form = document.querySelector(".contact-form");
 form.addEventListener("submit", handleFormSubmit);
 let question = [];
+
+document.addEventListener("DOMContentLoaded", function () {
+  const saveQuiz = document.getElementById("save");
+  saveQuiz.addEventListener("submit", async function (e) {
+    e.preventDefault();
+    const name = document.getElementById("question-name").value;
+    try {
+      const response = await sendQuiz(name, question);
+      console.log("Save successfully:", response);
+      window.location.href = "main.html"; // Example redirect on successful login
+    } catch (error) {
+      console.error("Save failed:", error);
+    }
+  });
+});
+
+export { load, canSummit, notSummitYet, closeOptionModal };

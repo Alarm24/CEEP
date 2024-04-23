@@ -1,4 +1,3 @@
-import { checkLoginStatus, logoutUser } from "./api.js";
 document.addEventListener("DOMContentLoaded", function () {
   // Example data
   const quizzes = [
@@ -42,24 +41,19 @@ function search() {
   }
 }
 async function protectRoute() {
-  try {
-    const status = await checkLoginStatus();
-    console.log("Check login status:", status.message);
-  } catch (error) {
-    console.error("Not logged in:", error.message);
-    window.location.href = "login.html"; // Redirect to login if not logged in
+  if (!localStorage.getItem("username")) {
+    window.location.href = "login.html";
   }
 }
-
 document.addEventListener("DOMContentLoaded", function () {
-  protectRoute(); // Protect the homepage
+  protectRoute();
 });
+
 document.addEventListener("DOMContentLoaded", function () {
   const logoutBtn = document.getElementById("logoutButton");
   logoutBtn.addEventListener("click", async function () {
     try {
-      const message = await logoutUser();
-      console.log(message); // Log out message from server
+      localStorage.removeItem("username");
       window.location.href = "login.html"; // Redirect to login on successful logout
     } catch (error) {
       console.error("Logout failed:", error);

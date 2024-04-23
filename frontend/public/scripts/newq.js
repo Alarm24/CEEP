@@ -12,9 +12,10 @@ function handleFormSubmit(event) {
   formJSON.choices = data.getAll("choices");
   formJSON.answer = parseInt(data.getAll("answer"));
 
-  const results = document.querySelector(".results pre");
-  results.innerText = formJSON;
-  question.push(results.innerText);
+  // const results = document.querySelector(".results pre");
+  // results.innerText = formJSON;
+  // question.push(results.innerText);
+  question.push(formJSON);
   var doc = document.getElementById("form");
   doc.reset();
   questionNumber++;

@@ -28,7 +28,8 @@ export async function loginUser(username, password) {
   }
   const data = await response.json();
   if (response.status === 200) {
-    localStorage.setItem("username", username);
+    localStorage.setItem("username", data.username);
+    localStorage.setItem("_id", data._id);
   }
 }
 

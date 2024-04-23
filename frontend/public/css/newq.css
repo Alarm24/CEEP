@@ -291,8 +291,8 @@ p {
   
   #home{
     float: left;
-    top:17%;
-    left:5%;
+    top:17.5%;
+    left:9%;
     background: none;
     border-radius: 50%;
     position:absolute;
@@ -370,7 +370,7 @@ p {
     border: 1px solid var(--color-gray-light);
     overflow-x: scroll;
   }
-  
+
   .contact-form form {
     position: relative;
     display: block;

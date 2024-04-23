@@ -1,5 +1,7 @@
 import { sendQuiz } from "./api.js";
 
+let question = [];
+
 function handleFormSubmit(event) {
   event.preventDefault();
 
@@ -7,14 +9,12 @@ function handleFormSubmit(event) {
 
   const formJSON = Object.fromEntries(data.entries());
 
-  // for multi-selects, we need special handling
-  formJSON.option = data.getAll("option");
-  formJSON.correctOption = parseInt(data.getAll("correctOption"));
+  formJSON.choices = data.getAll("choices");
+  formJSON.answer = parseInt(data.getAll("answer"));
 
   const results = document.querySelector(".results pre");
-  results.innerText = JSON.stringify(formJSON, null, 2);
+  results.innerText = formJSON;
   question.push(results.innerText);
-  console.log(question);
   var doc = document.getElementById("form");
   doc.reset();
   questionNumber++;
@@ -53,7 +53,6 @@ function closeOptionModal() {
 
 const form = document.querySelector(".contact-form");
 form.addEventListener("submit", handleFormSubmit);
-let question = [];
 
 document.addEventListener("DOMContentLoaded", function () {
   document.getElementById("question-number").innerHTML = questionNumber;
@@ -61,10 +60,12 @@ document.addEventListener("DOMContentLoaded", function () {
   saveQuiz.addEventListener("click", async function (e) {
     e.preventDefault();
     const name = document.getElementById("question-name").value;
+    let qs = JSON.stringify(question);
+    console.log(qs);
     try {
-      const response = await sendQuiz(name, question);
+      const response = await sendQuiz(name, qs);
       console.log("Save successfully:", response);
-      window.location.href = "main.html"; // Example redirect on successful login
+      window.location.href = "main.html";
     } catch (error) {
       console.error("Save failed:", error);
     }

@@ -1,97 +1,106 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Create new quiz</title>
+    <link rel="stylesheet" href="../css/newq.css" />
+  </head>
 
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Create new quiz</title>
-  <link rel="stylesheet" href="../css/newq.css">
+  <body onload="load()">
+    <div class="modal-container" id="option-modal">
+      <div class="modal-content-container">
+        <h1>Save Successfully!</h1>
 
-</head>
-
-<body onload="load()">
-  <div class="modal-container" id="option-modal">
-
-    <div class="modal-content-container">
-         <h1>Save Successfully!</h1>
-
-         <div class="modal-button-container">
-            <button onclick="closeOptionModal()">Continue</button>
+        <div class="modal-button-container">
+          <button onclick="closeOptionModal()">Continue</button>
         </div>
-
+      </div>
     </div>
+    <section class="contact-form">
+      <div class="header">
+        <button id="home">
+          <a href="main.html">
+            <img src="../src/home-button.png" width="60" />
+          </a>
+        </button>
+        <h1 style="text-align: center">New Quiz</h1>
+      </div>
 
-</div>
-  <section class="contact-form">
-    <div class="header">
-      <button id="home">
-        <a href="main.html">
-        <img src="../src/home-button.png" width="60">
-      </a>
-      </button>
-      <h1 style="text-align: center;">New Quiz</h1>
+      <div class="input-group">
+        <label for="question">Question name</label>
+        <textarea
+          id="question-name"
+          name="name"
+          type="text"
+          autocomplete="off"
+          required
+        ></textarea>
+      </div>
+      <form id="form" autocomplete="off">
+        <div class="input-group">
+          <label for="question" id="q"
+            >Question no.<span id="question-number"></span
+          ></label>
+          <textarea
+            id="question"
+            name="question"
+            type="text"
+            required
+          ></textarea>
+        </div>
+
+        <div class="input-group">
+          <div id="textA">
+            <label for="text">Answer 1</label>
+            <textarea name="optionA" type="text" required></textarea>
+          </div>
+        </div>
+
+        <div class="input-group">
+          <div id="textB">
+            <label for="text">Answer 2</label>
+            <textarea name="optionB" type="text" required></textarea>
+          </div>
+        </div>
+
+        <div class="input-group">
+          <div id="textC">
+            <label for="text">Answer 3</label>
+            <textarea name="optionC" type="text" required></textarea>
+          </div>
+        </div>
+
+        <div class="input-group">
+          <div id="textD">
+            <label for="text">Answer 4</label>
+            <textarea name="optionD" type="text" required></textarea>
+          </div>
+        </div>
+
+        <div class="input-group">
+          <div id="subject">
+            <label for="subject">Correct Answer</label>
+            <select id="select" name="correctOption">
+              <option>Answer 1</option>
+              <option>Answer 2</option>
+              <option>Answer 3</option>
+              <option>Answer 4</option>
+            </select>
+          </div>
+        </div>
+
+        <button id="moreQuestion" type="submit" onclick="notSummitYet()">
+          Add More Question
+        </button>
+        <button id="save" type="submit" onclick="canSummit()">Save</button>
+      </form>
+    </section>
+
+    <div class="results">
+      <h2>Previous Question</h2>
+      <pre></pre>
     </div>
-
-
-    <div class="input-group">
-      <label for="question">Question name</label>
-      <textarea id="question-name" name="name" type="text" autocomplete="off" required></textarea>
-    </div>
-    <form id="form" autocomplete="off">
-
-      <div class="input-group">
-        <label for="question" id="q">Question no.<span id="question-number"></span></label>
-        <textarea id="question" name="question" type="text" required></textarea>
-      </div>
-
-      <div class="input-group">
-        <div id="textA">
-          <label for="text">Answer 1</label>
-          <textarea name="optionA" type="text" required></textarea>
-        </div>
-      </div>
-
-      <div class="input-group">
-        <div id="textB">
-          <label for="text">Answer 2</label>
-          <textarea name="optionB" type="text" required></textarea>
-        </div>
-      </div>
-
-      <div class="input-group">
-        <div id="textC">
-          <label for="text">Answer 3</label>
-          <textarea name="optionC" type="text" required></textarea>
-        </div>
-      </div>
-
-      <div class="input-group">
-        <div id="textD">
-          <label for="text">Answer 4</label>
-          <textarea name="optionD" type="text" required></textarea>
-        </div>
-      </div>
-
-      <div class="input-group">
-        <div id="subject">
-          <label for="subject">Correct Answer</label>
-          <select id="select" name="correctOption">
-            <option>Answer 1</option>
-            <option>Answer 2</option>
-            <option>Answer 3</option>
-            <option>Answer 4</option>
-          </select>
-        </div>
-      </div>
-
-      <button id="moreQuestion" type="submit" onclick="notSummitYet()">Add More Question</button>
-      <button id="save" type="submit" onclick="canSummit()">Save</button>
-    </form>
-  </section>
-
-  <div class="results">
-    <h2>Previous Question</h2>
-    <pre></pre>
-  </div>
-  <script src="../scripts/newq.js"></script>
-</body>
+    <script src="../scripts/newq.js"></script>
+  </body>
+</html>

@@ -1,3 +1,4 @@
+import { updateScore } from "./api.js";
 var questions = [];
 document.addEventListener("DOMContentLoaded", function () {
   const rawData = JSON.parse(localStorage.getItem("selectedQuiz") || "[]");

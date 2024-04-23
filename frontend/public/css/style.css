@@ -20,14 +20,22 @@ body {
   padding: 10px 0;
 }
 
-.new-quiz-btn {
+.button-container {
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  gap: 10px;
+}
+
+.new-quiz-btn,
+.leaderboard-btn,
+#logoutButton {
   background-color: #3490dc;
   color: white;
   border: none;
   padding: 10px 20px;
   border-radius: 5px;
   cursor: pointer;
-  margin-right: 20px; /* If you want some space between the button and the search box */
 }
 
 .search-box {
@@ -81,34 +89,42 @@ table tbody tr:hover {
   background-color: #e2e6ea;
 }
 
-.container button:hover{
+.container button:hover {
   cursor: pointer;
-  transform: scale(1.10);
+  transform: scale(1.1);
   transition: 150ms all linear;
 }
 
-.button-container {
-  display: flex;
-  justify-content: start; /* Aligns items to the start of the container */
-  align-items: center;
-  gap: 10px; /* This adds some space between your buttons */
-}
+/* Responsive Styles */
+@media (max-width: 768px) {
+  body {
+    padding: 10px;
+  }
 
-.play-btn {
-  background-color: #3490dc;
-  color: white;
-  border: none;
-  padding: 5px 10px;
-  border-radius: 5px;
-  cursor: pointer;
-}
+  .top-bar {
+    flex-direction: column;
+    align-items: stretch;
+  }
 
-.leaderboard-btn {
-  background-color: #3490dc;
-  color: white;
-  border: none;
-  padding: 10px 20px;
-  border-radius: 5px;
-  cursor: pointer;
-  margin-right: 20px; /* If you want some space between the button and the search box */
+  .button-container {
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .search-box {
+    width: 100%;
+    margin-top: 10px;
+  }
+
+  table th,
+  table td {
+    padding: 10px;
+  }
+
+  .new-quiz-btn,
+  .leaderboard-btn,
+  #logoutButton {
+    padding: 8px 16px;
+    font-size: 0.8em;
+  }
 }

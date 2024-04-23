@@ -25,7 +25,10 @@ export const loginUser = async (req, res) => {
     if (req.body.password !== user.password) {
       return res.status(401).send("Invalid credentials.");
     }
-    return res.status(200).json(user);
+    return res.status(200).json({
+      message: "Logged in successfully.",
+      username: user.username, // Include the username in the response
+    });
   } catch (error) {
     console.error("Error logging in user:", error);
     res.status(500).send("Internal server error.");

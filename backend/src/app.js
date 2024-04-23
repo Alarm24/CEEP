@@ -20,13 +20,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 // allow request from other origin (Frontend which is at different port)
-app.use(
-  cors({
-    origin: "http://localhost:3221", // Specify the exact URL of the frontend
-  })
-);
-
-app.get("/", (req, res) => {});
+app.use(cors());
 
 // use routes
 app.use("/user", UserRoute);

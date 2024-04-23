@@ -12,7 +12,7 @@ export async function createUser(username, password) {
   if (!response.ok) {
     throw new Error(`HTTP error! status: ${response.status}`);
   }
-  return response.json(); // This returns the response body converted to JSON
+  return response.json();
 }
 
 export async function loginUser(username, password) {
@@ -22,34 +22,27 @@ export async function loginUser(username, password) {
       "Content-Type": "application/json",
     },
     body: JSON.stringify({ username, password }),
-    credentials: "include",
   });
   if (!response.ok) {
     throw new Error(`HTTP error! status: ${response.status}`);
   }
-  return response.json(); // This returns the response body converted to JSON, potentially including the authentication token
+  const data = await response.json();
+  if (response.status === 200) {
+    localStorage.setItem("username", username);
+  }
 }
 
-export async function checkLoginStatus() {
-  const response = await fetch(`${BACKEND_URL}/user/checkLogin`, {
+export async function getQuiz() {
+  const response = await fetch(`${BACKEND_URL}/quiz`, {
     method: "GET",
-    credentials: "include",
+    headers: {
+      "Content-Type": "application/json",
+    },
   });
-
   if (!response.ok) {
     throw new Error(`HTTP error! status: ${response.status}`);
   }
-  return response.json(); // This returns the response body converted to JSON
-}
-
-export async function logoutUser() {
-  const response = await fetch(`${BACKEND_URL}/user/logout`, {
-    method: "POST",
-    credentials: "include", // Necessary to include the session cookie in the request
-  });
-
-  if (!response.ok) {
-    throw new Error(`HTTP error! status: ${response.status}`);
-  }
-  return response.text(); // This returns the response body as text
+  const data = await response.json(); // Parse the JSON response
+  localStorage.setItem("quiz", JSON.stringify(data)); // Store the quiz data in localStorage
+  return data;
 }

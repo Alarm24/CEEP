@@ -1,6 +1,6 @@
 body {
   font-family: "Arial", sans-serif;
-    background: url(../src/blue.jpg); /* Or use the specific blue shade from your image */
+  background: url(../src/blue.jpg); /* Or use the specific blue shade from your image */
   margin: 0;
   padding: 20px;
 }
@@ -8,8 +8,7 @@ body {
 .leaderboard-container {
   background: #3490dc; /* Dark blue background */
   color: white;
-  border:8px solid transparent;
-  border-color: red;
+  border: 8px solid red;
   border-radius: 10px;
   padding: 20px;
   max-width: 600px;
@@ -25,6 +24,7 @@ header {
 
 header h1 {
   color: white; /* Color for the header text */
+  flex: 1; /* Make sure the header text and the select box are properly aligned */
 }
 
 #quiz-select {
@@ -41,6 +41,7 @@ header h1 {
   padding: 20px;
   margin-bottom: 20px;
 }
+
 .leaderboard-table {
   width: 100%;
   border-collapse: collapse;
@@ -87,4 +88,40 @@ header h1 {
 #pagination-controls {
   text-align: center;
   padding: 20px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .leaderboard-container {
+    max-width: 100%;
+    padding: 10px;
+  }
+
+  header {
+    flex-direction: column;
+  }
+
+  #quiz-select {
+    width: 100%;
+    margin-top: 10px;
+  }
+
+  .main-page-btn {
+    padding: 10px;
+  }
+}
+
+@media (max-width: 480px) {
+  body {
+    padding: 10px;
+  }
+
+  header h1 {
+    font-size: 1.5em;
+  }
+
+  .leaderboard-table th,
+  .leaderboard-table td {
+    padding: 8px;
+  }
 }

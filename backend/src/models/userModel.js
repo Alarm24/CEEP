@@ -11,6 +11,7 @@ const userSchema = new Schema({
     type: String,
     required: true,
   },
+  scores: Object
 });
 
 export default mongoose.model("User", userSchema);

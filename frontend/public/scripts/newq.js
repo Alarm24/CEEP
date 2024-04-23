@@ -6,22 +6,22 @@ function handleFormSubmit(event) {
   const formJSON = Object.fromEntries(data.entries());
 
   // for multi-selects, we need special handling
-  formJSON.option = data.getAll('option');
-  formJSON.correctOption = parseInt(data.getAll('correctOption'))
+  formJSON.option = data.getAll("option");
+  formJSON.correctOption = parseInt(data.getAll("correctOption"));
 
-  const results = document.querySelector('.results pre');
+  const results = document.querySelector(".results pre");
   results.innerText = JSON.stringify(formJSON, null, 2);
-  question.push(results.innerText)
-  console.log(question)
+  question.push(results.innerText);
+  console.log(question);
   var doc = document.getElementById("form");
-  doc.reset()
+  doc.reset();
   questionNumber++;
-  document.getElementById("question-number").innerHTML = questionNumber
+  document.getElementById("question-number").innerHTML = questionNumber;
   document.getElementById("question-name").disabled = true;
   document.getElementById("question-name").style.backgroundColor = "lightgray";
   if (summit) {
     document.getElementById("option-modal").style.display = "flex";
-    document.querySelector('.results pre').innerText = "";
+    document.querySelector(".results pre").innerText = "";
     document.getElementById("question-name").disabled = false;
     document.getElementById("question-name").style.backgroundColor = "white";
     document.getElementById("question-name").value = "";
@@ -30,11 +30,11 @@ function handleFormSubmit(event) {
   }
 }
 
-let questionNumber = 1
-let summit = false
+let questionNumber = 1;
+let summit = false;
 
 function load() {
-  document.getElementById("question-number").innerHTML = questionNumber
+  document.getElementById("question-number").innerHTML = questionNumber;
 }
 
 function canSummit() {
@@ -50,6 +50,6 @@ function closeOptionModal() {
   summit = false;
 }
 
-const form = document.querySelector('.contact-form');
-form.addEventListener('submit', handleFormSubmit);
+const form = document.querySelector(".contact-form");
+form.addEventListener("submit", handleFormSubmit);
 let question = [];

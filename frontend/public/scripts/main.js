@@ -27,8 +27,6 @@ document.addEventListener("DOMContentLoaded", function () {
     try {
       const response = await loginUser(username, password);
       console.log("Login successful:", response);
-      // Save the token to localStorage/sessionStorage or set cookies as needed
-      // Redirect to a different page or update the UI to show logged-in state
       window.location.href = "main.html"; // Example redirect on successful login
     } catch (error) {
       console.error("Login failed:", error);

@@ -69,7 +69,7 @@ document.addEventListener("DOMContentLoaded", function () {
     try {
       const response = await sendQuiz(name, qs);
       console.log("Save successfully:", response);
-      // window.location.href = "main.html";
+      window.location.href = "main.html";
     } catch (error) {
       console.error("Save failed:", error);
     }

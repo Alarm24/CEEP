@@ -1,6 +1,11 @@
 import { getQuiz } from "./api.js";
 function toQuiz(index) {
-  localStorage.setItem("quizIndex", index);
+  const rawData = JSON.parse(localStorage.getItem("quiz") || "[]");
+  const quizData = rawData[index];
+  localStorage.setItem("selectedQuiz", JSON.stringify(quizData)); // Store the selected quiz data
+  localStorage.setItem("quizIndex", index); // Store the index if needed elsewhere
+  console.log(rawData);
+  console.log(quizData);
   window.location.href = "quiz.html";
 }
 
@@ -22,7 +27,10 @@ document.addEventListener("DOMContentLoaded", function () {
         <td>${quiz.itemCount}</td>
         <td><button class="play-btn">Play</button></td>
       `;
-    row.addEventListener("click", function () {
+    // row.addEventListener("click", function () {
+    //   toQuiz(index);
+    // });
+    row.cells[3].firstChild.addEventListener("click", function () {
       toQuiz(index);
     });
   });
@@ -62,7 +70,7 @@ document.addEventListener("DOMContentLoaded", function () {
   const logoutBtn = document.getElementById("logoutButton");
   logoutBtn.addEventListener("click", async function () {
     try {
-      localStorage.removeItem("username");
+      localStorage.clear();
       window.location.href = "login.html"; // Redirect to login on successful logout
     } catch (error) {
       console.error("Logout failed:", error);

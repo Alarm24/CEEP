@@ -149,6 +149,7 @@ function handleEndGame() {
 
 //closes score modal and resets game
 function closeScoreModal() {
+  localStorage.removeItem("selectedQuiz");
   document.getElementById("score-modal").style.display = "none";
 }
 
@@ -159,7 +160,7 @@ function tryAgain() {
   indexNumber = 0;
   shuffledQuestions = [];
   NextQuestion(indexNumber);
-  closeScoreModal();
+  document.getElementById("score-modal").style.display = "none";
 }
 
 //function to close warning modal

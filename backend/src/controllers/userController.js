@@ -7,10 +7,7 @@ export const createUser = async (req, res) => {
       return res.status(409).send("User already exists.");
     }
 
-    const newUser = new User({
-      username: req.body.username,
-      password: req.body.password,
-    });
+    const newUser = new User(req.body);
     await newUser.save();
     return res.status(200).json({ message: "OK" });
   } catch (error) {
@@ -31,6 +28,27 @@ export const loginUser = async (req, res) => {
     return res.status(200).json({
       message: "Logged in successfully.",
       username: user.username, // Include the username in the response
+    });
+  } catch (error) {
+    console.error("Error logging in user:", error);
+    res.status(500).send("Internal server error.");
+  }
+};
+
+export const updateScore = async (req, res) => {
+  try {
+    const user = await User.findOne({ _id: req.body._id });
+    if (!user) {
+      return res.status(404).send("User not found.");
+    }
+    user.scores = req.body.scores;
+    User.updateOne({ _id: req.body._id }, user, (err) => {
+      if (err) {
+        return res.status(500).send("Internal server error.");
+      }
+    })
+    return res.status(200).json({
+      message: "Update Success",
     });
   } catch (error) {
     console.error("Error logging in user:", error);

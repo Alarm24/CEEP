@@ -1,38 +1,74 @@
 let currentPage = 1;
 const itemsPerPage = 10; // Change as needed for items per page
 
-// Dummy data for quizzes
-const quizzes = [
-  { id: "1", name: "General Knowledge" },
-  { id: "2", name: "Science and Nature" },
-];
+let globalQuizzes = [];
+let leaderboardData = {};
 // Dummy leaderboard data
-const leaderboardData = {
-  1: [
-    { rank: 1, name: "Alice Johnson", score: 150 },
-    { rank: 2, name: "Bob Smith", score: 145 },
-    { rank: 3, name: "Carol Danvers", score: 140 },
-    { rank: 1, name: "Alice Johnson", score: 150 },
-    { rank: 2, name: "Bob Smith", score: 145 },
-    { rank: 3, name: "Carol Danvers", score: 140 },
-    { rank: 1, name: "Alice Johnson", score: 150 },
-    { rank: 2, name: "Bob Smith", score: 145 },
-    { rank: 3, name: "Carol Danvers", score: 140 },
-    { rank: 1, name: "Alice Johnson", score: 150 },
-    { rank: 2, name: "Bob Smith", score: 145 },
-    { rank: 3, name: "Carol Danvers", score: 140 },
-  ],
-  2: [
-    { rank: 1, name: "Dave Brown", score: 155 },
-    { rank: 2, name: "Eve Davis", score: 150 },
-    { rank: 3, name: "Frank Castle", score: 145 },
-  ],
-};
+document.addEventListener("DOMContentLoaded", function () {
+  const rawData = JSON.parse(localStorage.getItem("quiz") || "[]");
+  console.log(rawData);
+  globalQuizzes = rawData.map((quiz, index) => ({
+    id: index + 1,
+    name: quiz.name,
+  }));
+  const quizNameToId = {};
+  globalQuizzes.forEach((quiz) => {
+    quizNameToId[quiz.name] = quiz.id;
+  });
+  console.log(globalQuizzes);
+  globalQuizzes.forEach((quiz) => {
+    leaderboardData[quiz.id] = []; // Initialize each quiz ID with an empty array
+  });
+  console.log(leaderboardData);
+  const userData = JSON.parse(localStorage.getItem("userData") || "[]");
+  Object.values(userData).forEach((user) => {
+    if (user.scores) {
+      Object.entries(user.scores).forEach(([quizName, score]) => {
+        const quizId = quizNameToId[quizName];
+        if (quizId && leaderboardData[quizId]) {
+          leaderboardData[quizId].push({
+            rank: 0,
+            name: user.username,
+            score: score,
+          });
+          leaderboardData[quizId].sort((a, b) => b.score - a.score); // Sort descending by score
+          leaderboardData[quizId].forEach((entry, index) => {
+            entry.rank = index + 1; // Reassign ranks
+          });
+        }
+      });
+    }
+  });
+  // console.log(leaderboardData);
+});
+
+function updateLeaderboards() {
+  // Create a new leaderboard based on usernames and scores from localStorage
+  Object.values(localStorageData).forEach((user) => {
+    if (user.scores) {
+      Object.entries(user.scores).forEach(([quizName, score]) => {
+        const quizId = quizNameToId[quizName];
+        if (quizId && leaderboardData[quizId]) {
+          leaderboardData[quizId].push({
+            rank: 0,
+            name: user.username,
+            score: score,
+          });
+          leaderboardData[quizId].sort((a, b) => b.score - a.score); // Sort descending by score
+          leaderboardData[quizId].forEach((entry, index) => {
+            entry.rank = index + 1; // Reassign ranks
+          });
+        }
+      });
+    }
+  });
+  console.log(leaderboardData);
+}
 
 // Function to populate the select dropdown with quiz options
 function populateQuizSelect() {
   const select = document.getElementById("quiz-select");
-  quizzes.forEach((quiz) => {
+  globalQuizzes.forEach((quiz) => {
     let option = document.createElement("option");
     option.value = quiz.id;
     option.textContent = quiz.name;
@@ -110,5 +146,3 @@ function updatePaginationControls(totalItems) {
 
 // Initial population of the quiz select dropdown on page load
 document.addEventListener("DOMContentLoaded", populateQuizSelect);
-
-// You would call loadLeaderboard() when the dropdown selection changes

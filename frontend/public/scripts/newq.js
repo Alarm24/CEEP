@@ -7,6 +7,7 @@ function handleFormSubmit(event) {
 
   // for multi-selects, we need special handling
   formJSON.option = data.getAll('option');
+  formJSON.correctOption = parseInt(data.getAll('correctOption'))
 
   const results = document.querySelector('.results pre');
   results.innerText = JSON.stringify(formJSON, null, 2);

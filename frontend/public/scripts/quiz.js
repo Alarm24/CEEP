@@ -82,8 +82,6 @@ function checkForAnswer() {
     }
   });
 }
-
-//called when the next button is called
 function handleNextQuestion() {
   checkForAnswer();
   unCheckRadioButtons();
@@ -163,7 +161,17 @@ function tryAgain() {
 function closeOptionModal() {
   document.getElementById("option-modal").style.display = "none";
 }
-async function updateScore(playerScore) {
-  const id = localStorage.getItem("_id");
-  await updateScore(id, playerScore);
-}
+// async function updateScore(playerScore) {
+//   const id = localStorage.getItem("_id");
+//   await updateScore(id, playerScore);
+// }
+window.handleQuestions = handleQuestions;
+window.NextQuestion = NextQuestion;
+window.checkForAnswer = checkForAnswer;
+window.handleNextQuestion = handleNextQuestion;
+window.resetOptionBackground = resetOptionBackground;
+window.unCheckRadioButtons = unCheckRadioButtons;
+window.handleEndGame = handleEndGame;
+window.tryAgain = tryAgain;
+windowcloseScoreModal = closeScoreModal;
+window.closeOptionModal = closeOptionModal;

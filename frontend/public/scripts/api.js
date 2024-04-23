@@ -48,6 +48,21 @@ export async function getQuiz() {
   return data;
 }
 
+export async function getUser() {
+  const response = await fetch(`${BACKEND_URL}/user`, {
+    method: "GET",
+    headers: {
+      "Content-Type": "application/json",
+    },
+  });
+  if (!response.ok) {
+    throw new Error(`HTTP error! status: ${response.status}`);
+  }
+  const data = await response.json(); // Parse the JSON response
+  localStorage.setItem("userData", JSON.stringify(data)); // Store the quiz data in localStorage
+  return data;
+}
+
 export async function sendQuiz(name, questions) {
   const response = await fetch(`${BACKEND_URL}/quiz`, {
     method: "POST",

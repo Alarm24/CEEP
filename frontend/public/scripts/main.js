@@ -1,4 +1,4 @@
-import { getQuiz } from "./api.js";
+import { getQuiz, getUser } from "./api.js";
 function toQuiz(index) {
   const rawData = JSON.parse(localStorage.getItem("quiz") || "[]");
   const quizData = rawData[index];
@@ -62,6 +62,7 @@ async function protectRoute() {
 document.addEventListener("DOMContentLoaded", function () {
   protectRoute();
   getQuiz();
+  getUser();
 });
 document.addEventListener("DOMContentLoaded", function () {
   const logoutBtn = document.getElementById("logoutButton");

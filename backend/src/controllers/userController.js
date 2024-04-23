@@ -28,6 +28,7 @@ export const loginUser = async (req, res) => {
     return res.status(200).json({
       message: "Logged in successfully.",
       username: user.username, // Include the username in the response
+      _id: user._id,
     });
   } catch (error) {
     console.error("Error logging in user:", error);
@@ -46,7 +47,7 @@ export const updateScore = async (req, res) => {
       if (err) {
         return res.status(500).send("Internal server error.");
       }
-    })
+    });
     return res.status(200).json({
       message: "Update Success",
     });

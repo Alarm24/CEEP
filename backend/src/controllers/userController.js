@@ -28,13 +28,28 @@ export const loginUser = async (req, res) => {
     if (req.body.password !== user.password) {
       return res.status(401).send("Invalid credentials.");
     }
-    // Here you would handle creating a session or generating a token
-    // For example, using a JSON Web Token (JWT)
-    // const token = jwt.sign({ userId: user._id }, 'your-secret-key', { expiresIn: '1h' });
-    // res.json({ message: "Logged in successfully", token });
+    req.session.isAuth = true;
     return res.status(200).json({ message: "Logged in successfully." });
   } catch (error) {
     console.error("Error logging in user:", error);
     res.status(500).send("Internal server error.");
   }
+};
+
+export const checkLoginStatus = (req, res) => {
+  if (req.session.isAuth) {
+    res.status(200).json({ message: "User is logged in." });
+  } else {
+    res.status(401).json({ message: "User is not logged in." });
+  }
+};
+
+export const logoutUser = (req, res) => {
+  req.session.destroy((err) => {
+    if (err) {
+      console.error("Session destruction error:", err);
+      return res.status(500).send("Failed to log out.");
+    }
+    res.send("Logged out successfully.");
+  });
 };

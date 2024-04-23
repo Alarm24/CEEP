@@ -1,4 +1,4 @@
-import { createUser, loginUser } from "./api.js"; // Adjust path if necessary
+import { createUser, loginUser, checkLoginStatus } from "./api.js";
 
 document.addEventListener("DOMContentLoaded", function () {
   const signUpForm = document.getElementById("signupForm");

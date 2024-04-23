@@ -13,7 +13,12 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 // allow request from other origin (Frontend which is at different port)
-app.use(cors());
+app.use(
+  cors({
+    origin: "http://localhost:3221", // Specify the exact URL of the frontend
+    credentials: true, // This is important to allow sending cookies across origins
+  })
+);
 
 const store = new MongoDBStore({
   uri: mongoURI,

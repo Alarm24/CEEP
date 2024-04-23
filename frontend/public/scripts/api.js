@@ -31,3 +31,18 @@ export async function loginUser(username, password) {
     localStorage.setItem("username", username);
   }
 }
+
+export async function getQuiz() {
+  const response = await fetch(`${BACKEND_URL}/quiz`, {
+    method: "GET",
+    headers: {
+      "Content-Type": "application/json",
+    },
+  });
+  if (!response.ok) {
+    throw new Error(`HTTP error! status: ${response.status}`);
+  }
+  const data = await response.json(); // Parse the JSON response
+  localStorage.setItem("quiz", JSON.stringify(data)); // Store the quiz data in localStorage
+  return data;
+}

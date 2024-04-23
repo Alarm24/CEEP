@@ -1,6 +1,5 @@
 import express from "express";
 import cors from "cors";
-import connectMongoDBSession from "connect-mongodb-session";
 import UserRoute from "./routes/userRoute.js";
 
 const app = express();

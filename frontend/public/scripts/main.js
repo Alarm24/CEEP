@@ -9,7 +9,8 @@ function toQuiz(index) {
   window.location.href = "quiz.html";
 }
 
-document.addEventListener("DOMContentLoaded", function () {
+document.addEventListener("DOMContentLoaded", async function () {
+  await getQuiz();
   const rawData = JSON.parse(localStorage.getItem("quiz") || "[]");
   console.log(rawData);
   const quizzes = rawData.map((quiz, index) => ({
